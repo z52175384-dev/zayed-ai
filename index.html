@@ -1,130 +1,269 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#07111f">
-  <title>ZAYED AI | مساعدك الذكي</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Tahoma, Arial, sans-serif;
-      background: #07111f;
-      color: #f1f7ff;
-      min-height: 100vh;
-    }
-    header {
-      padding: 20px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #1b3550;
-      background: #0a1728;
-    }
-    .logo {
-      font-size: 25px;
-      font-weight: bold;
-      color: #53d9ff;
-      letter-spacing: 1px;
-    }
-    .badge {
-      border: 1px solid #24516c;
-      padding: 8px 12px;
-      border-radius: 20px;
-      color: #a8eaff;
-      font-size: 12px;
-    }
-    main {
-      max-width: 850px;
-      margin: 65px auto;
-      padding: 20px;
-    }
-    .hero { text-align: center; margin-bottom: 35px; }
-    .orb {
-      width: 85px;
-      height: 85px;
-      margin: 0 auto 22px;
-      border-radius: 28px;
-      display: grid;
-      place-items: center;
-      font-size: 38px;
-      background: linear-gradient(135deg, #123e63, #087eaa);
-      box-shadow: 0 0 45px #087eaa55;
-    }
-    h1 { font-size: clamp(30px, 6vw, 48px); margin: 12px 0; }
-    h1 span { color: #53d9ff; }
-    .subtitle { color: #a8b8ca; line-height: 1.9; }
-    .panel {
-      background: #0c1c2e;
-      border: 1px solid #1d3a54;
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: 0 15px 50px #0003;
-    }
-    label { display: block; margin: 0 0 10px; color: #cceaff; }
-    select, textarea {
-      width: 100%;
-      background: #071524;
-      color: white;
-      border: 1px solid #25445e;
-      border-radius: 12px;
-      padding: 14px;
-      font: inherit;
-      outline: none;
-    }
-    select { margin-bottom: 20px; }
-    textarea { min-height: 115px; resize: vertical; }
-    select:focus, textarea:focus { border-color: #53d9ff; }
-    button {
-      width: 100%;
-      margin-top: 15px;
-      border: 0;
-      border-radius: 12px;
-      padding: 15px;
-      color: #04111e;
-      background: linear-gradient(90deg, #53d9ff, #77f0dc);
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { filter: brightness(1.08); }
-    #reply {
-      display: none;
-      margin-top: 20px;
-      padding: 16px;
-      border-radius: 12px;
-      background: #071524;
-      border: 1px solid #25445e;
-      line-height: 1.9;
-      white-space: pre-wrap;
-    }
-    .notice { color: #91a8bc; font-size: 12px; line-height: 1.8; margin-top: 14px; }
-    footer { text-align: center; color: #7890a6; padding: 25px 15px; font-size: 12px; }
-    @media (max-width: 600px) {
-      header { padding: 16px; }
-      main { margin: 35px auto; padding: 16px; }
-      .panel { padding: 17px; }
-      .badge { font-size: 10px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#061322">
+<title>ZAYED AI | مساعدك الذكي</title>
+<style>
+:root {
+  --bg:#04101d;
+  --panel:#091b2d;
+  --line:#164766;
+  --cyan:#21c9f3;
+  --text:#f1f8ff;
+  --muted:#a3bacd;
+}
+* { box-sizing:border-box; }
+body {
+  margin:0;
+  font-family:Tahoma,Arial,sans-serif;
+  background:radial-gradient(ellipse at top,#123451,var(--bg) 65%);
+  color:var(--text);
+}
+header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 6%;
+  background:#061525;
+  border-bottom:1px solid var(--line);
+}
+.logo { font-size:25px;font-weight:bold;color:var(--cyan); }
+.tag {
+  color:#a9eaff;
+  border:1px solid var(--line);
+  border-radius:25px;
+  padding:9px 13px;
+  font-size:12px;
+}
+main { width:min(950px,94%);margin:auto; }
+.hero { text-align:center;padding:45px 10px 30px; }
+.orb {
+  width:70px;height:70px;margin:auto;
+  display:grid;place-items:center;
+  border-radius:23px;font-size:35px;
+  background:linear-gradient(135deg,#123e63,#087eaa);
+  box-shadow:0 0 35px #087eaa55;
+}
+h1 { font-size:clamp(32px,6vw,52px);margin:16px 0 8px; }
+h1 span { color:var(--cyan); }
+.hero p { color:var(--muted);line-height:1.9; }
+.panel {
+  background:linear-gradient(145deg,#0b2034,#071625);
+  border:1px solid var(--line);
+  border-radius:22px;
+  padding:clamp(15px,3vw,25px);
+  box-shadow:0 15px 45px #0004;
+}
+.section-title { font-weight:bold;margin:0 0 14px; }
+.modes {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:9px;
+  margin-bottom:24px;
+}
+.mode {
+  padding:13px 6px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#081b2c;
+  color:#d8eaf7;
+  font:inherit;
+  font-size:13px;
+  cursor:pointer;
+}
+.mode.active {
+  background:linear-gradient(100deg,#21c9f3,#78e7dc);
+  color:#032033;
+  font-weight:bold;
+  border-color:transparent;
+}
+textarea {
+  display:block;
+  width:100%;
+  min-height:135px;
+  resize:vertical;
+  background:#041423;
+  color:white;
+  border:1px solid #17618a;
+  border-radius:15px;
+  padding:16px;
+  font:inherit;
+  line-height:1.8;
+  outline:none;
+}
+textarea:focus { border-color:var(--cyan); }
+textarea::placeholder { color:#789bb4; }
+.send {
+  display:block;
+  width:100%;
+  margin-top:13px;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  background:linear-gradient(90deg,#24c9f2,#7ce8dc);
+  color:#032033;
+  font:inherit;
+  font-weight:bold;
+  cursor:pointer;
+}
+#reply {
+  display:none;
+  margin-top:17px;
+  padding:16px;
+  background:#041423;
+  border:1px solid var(--line);
+  border-radius:13px;
+  line-height:1.9;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+.notice { color:#91a8bc;font-size:12px;line-height:1.8; }
+.subjects { padding:40px 0; }
+.subjects h2 { text-align:center; }
+.subjects>p { text-align:center;color:var(--muted);line-height:1.8; }
+.grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+}
+.card {
+  background:#091b2d;
+  border:1px solid var(--line);
+  border-radius:15px;
+  padding:17px 13px;
+}
+.card h3 { color:var(--cyan);font-size:16px; }
+.card p { color:var(--muted);font-size:12px;line-height:1.8; }
+footer {
+  text-align:center;
+  padding:23px 12px;
+  border-top:1px solid var(--line);
+  color:#8aa8bf;
+  font-size:12px;
+  line-height:2;
+}
+@media(max-width:650px) {
+  header { padding:15px; }
+  .logo { font-size:21px; }
+  .hero { padding-top:30px; }
+  .modes { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .mode:last-child { grid-column:span 2; }
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:360px) {
+  .grid { grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
-  <header>
-    <div class="logo">ZAYED AI</div>
-    <div class="badge">✦ مساعدك الذكي</div>
-  </header>
+<header>
+  <div class="logo">ZAYED AI</div>
+  <div class="tag">✦ مساعدك الذكي</div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="orb">✧</div>
-      <h1>أهلًا بك في <span>ZAYED AI</span></h1>
-      <p class="subtitle">
-        مساحة ذكية للتعلّم والإبداع واكتشاف الإجابات.<br>
-        اسأل بطريقتك، واختر أسلوب الشرح المناسب لك.
-      </p>
-    </section>
+<main>
+  <section class="hero">
+    <div class="orb">✧</div>
+    <h1>أهلًا بك في <span>ZAYED AI</span></h1>
+    <p>مساعدك الذكي للتعلّم والفهم والإبداع.<br>
+    اسأل بطريقتك واختر أسلوب الشرح المناسب لك.</p>
+  </section>
 
-    <section class="panel">
-      <label for="style">اختر
+  <section class="panel">
+    <p class="section-title">١. اختار أسلوب الكلام والشرح</p>
+
+    <div class="modes">
+      <button class="mode active" data-style="simple">📘 شرح مبسّط</button>
+      <button class="mode" data-style="egyptian">💬 بالمصري</button>
+      <button class="mode" data-style="standard">🖋️ فصحى</button>
+      <button class="mode" data-style="science">🧪 شرح علمي</button>
+      <button class="mode" data-style="steps">🧩 خطوة بخطوة</button>
+    </div>
+
+    <p class="section-title">٢. اكتب سؤالك هنا</p>
+    <textarea id="question" placeholder="اكتب سؤالك أو المسألة اللي محتاج مساعدة فيها..."></textarea>
+    <button class="send" id="send">إرسال السؤال ←</button>
+    <div id="reply" role="status" aria-live="polite"></div>
+    <p class="notice">يمكن ربط الواجهة بخادم ذكاء اصطناعي بعد نشره. لا تضع مفتاح API داخل هذا الملف.</p>
+  </section>
+
+  <section class="subjects">
+    <h2>ماذا تريد أن تتعلّم؟</h2>
+    <p>اسأل في أي مادة أو مجال، وابدأ رحلة التعلّم.</p>
+    <div class="grid">
+      <article class="card"><h3>⚗️ الكيمياء</h3><p>المفاهيم والمعادلات والتفاعلات والمسائل.</p></article>
+      <article class="card"><h3>⚛️ الفيزياء</h3><p>القوانين والمسائل مع شرح خطوات الحل.</p></article>
+      <article class="card"><h3>∑ الرياضيات</h3><p>شرح الأفكار والتدريب على طرق الحل.</p></article>
+      <article class="card"><h3>🧬 الأحياء</h3><p>تبسيط الدروس والمصطلحات والعمليات الحيوية.</p></article>
+      <article class="card"><h3>🔤 الإنجليزية</h3><p>القواعد والمفردات والترجمة والمحادثة.</p></article>
+      <article class="card"><h3>📚 العربية</h3><p>النحو والبلاغة والأدب والتعبير.</p></article>
+      <article class="card"><h3>☪️ المواد الشرعية</h3><p>مساعدة في الفقه والتفسير والحديث.</p></article>
+      <article class="card"><h3>🌐 معلومات عامة</h3><p>استكشف أفكارًا جديدة واسأل عن أي موضوع.</p></article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>ZAYED AI</strong> — مساعدك الذكي<br>
+  ﴿ وَقُلْ رَبِّ زِدْنِي عِلْمًا ﴾
+</footer>
+
+<script>
+const API_URL = "";
+let selectedStyle = "simple";
+
+const modeButtons = document.querySelectorAll(".mode");
+const question = document.getElementById("question");
+const reply = document.getElementById("reply");
+const send = document.getElementById("send");
+
+modeButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    modeButtons.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+    selectedStyle = button.dataset.style;
+  });
+});
+
+send.addEventListener("click", async () => {
+  const message = question.value.trim();
+  reply.style.display = "block";
+
+  if (!message) {
+    reply.textContent = "اكتب سؤالك الأول، وبعدها اضغط إرسال السؤال.";
+    question.focus();
+    return;
+  }
+
+  if (!API_URL) {
+    reply.textContent = "واجهة ZAYED AI جاهزة، لكن الذكاء الاصطناعي الحقيقي لم يتم ربطه بعد.";
+    return;
+  }
+
+  send.disabled = true;
+  send.textContent = "جاري تجهيز الإجابة...";
+  reply.textContent = "زيزو بيفكّر...";
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({message, style: selectedStyle})
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error("تعذّر الحصول على الإجابة.");
+    reply.textContent = data.reply || "لم يصل رد من الخادم.";
+  } catch (error) {
+    reply.textContent = "حصلت مشكلة في الاتصال بالخادم. تأكد من نشره وصحة الرابط.";
+  } finally {
+    send.disabled = false;
+    send.textContent = "إرسال السؤال ←";
+  }
+});
+</script>
+</body>
+</html>
